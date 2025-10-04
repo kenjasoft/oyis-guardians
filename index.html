@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://kenjasoft.github.io/oyis-guardians/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6th Grade Guardians</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Crimson+Text:ital@0;1&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background:
+                radial-gradient(ellipse at top, rgba(32, 83, 117, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(184, 134, 87, 0.3) 0%, transparent 50%),
+                linear-gradient(135deg, #1a2332 0%, #2a3f5f 25%, #1e4d5c 50%, #2a3f5f 75%, #1a2332 100%);
+            padding: 40px 20px;
+            font-family: 'Crimson Text', serif;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background:
+                linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(184, 134, 87, 0.08) 50%, rgba(255, 255, 255, 0) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><text x="10" y="50" font-size="40" opacity="0.03">✦</text><text x="60" y="80" font-size="30" opacity="0.03">✨</text></svg>'),
+                linear-gradient(to bottom, #e8dcc8 0%, #f5ead5 50%, #e8dcc8 100%);
+            border: 8px solid #8b6635;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow:
+                0 0 80px rgba(184, 134, 87, 0.6),
+                0 0 120px rgba(32, 83, 117, 0.4),
+                inset 0 0 60px rgba(184, 134, 87, 0.15),
+                inset 0 2px 4px rgba(255, 255, 255, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .corner {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 3px solid #8b6635;
+        }
+
+        .corner-tl {
+            top: 15px;
+            left: 15px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner-tr {
+            top: 15px;
+            right: 15px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .corner-bl {
+            bottom: 15px;
+            left: 15px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .corner-br {
+            bottom: 15px;
+            right: 15px;
+            border-left: none;
+            border-top: none;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2em;
+            text-align: center;
+            background: linear-gradient(135deg, #1e4d5c 0%, #2a5f70 50%, #1e4d5c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(184, 134, 87, 0.5);
+            filter: drop-shadow(3px 3px 6px rgba(184, 134, 87, 0.4));
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        h1::before,
+        h1::after {
+            content: "✦";
+            position: absolute;
+            color: #b88657;
+            font-size: 0.4em;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: sparkle 2s infinite;
+        }
+
+        h1::before {
+            left: -40px;
+        }
+
+        h1::after {
+            right: -40px;
+            animation-delay: 1s;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: translateY(-50%) scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(-50%) scale(1.3);
+            }
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: #8b6635;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+
+        .wand-divider {
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #8b6635, transparent);
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .wand-divider::before {
+            content: "✦";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #8b6635;
+            font-size: 20px;
+            background: #e8dcc8;
+            padding: 0 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 30px;
+            border: 3px solid #8b6635;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #1e4d5c 0%, #2a5f70 100%);
+            color: #f5ead5;
+            padding: 15px;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            border-right: 3px solid #8b6635;
+        }
+
+        th:last-child {
+            border-right: none;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 2px solid #e6d5b8;
+            border-right: 3px solid #e6d5b8;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        td:last-child {
+            border-right: none;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) td {
+            background: rgba(244, 228, 193, 0.3);
+        }
+
+        .name-cell {
+            width: 30%;
+            font-weight: bold;
+            color: #1e4d5c;
+            font-size: 1.3em;
+            text-align: center;
+        }
+
+        .achievement-cell {
+            width: 70%;
+            position: relative;
+            cursor: default;
+        }
+
+        .quill-btn {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 10;
+            display: none;
+        }
+
+        .quill-btn.active {
+            display: block;
+        }
+
+        .achievement-cell:hover .quill-btn.active {
+            opacity: 1;
+        }
+
+        .quill-btn:hover {
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        .quill-btn.drawing {
+            animation: drawAndFade 1s ease-out;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes drawAndFade {
+            0% {
+                opacity: 1;
+                transform: translateY(-50%) translateX(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-50%) translateX(400px);
+            }
+        }
+
+        .tally-marks {
+            display: inline-flex;
+            gap: 8px;
+            margin-left: 50px;
+            align-items: center;
+            min-height: 30px;
+        }
+
+        .tally-group {
+            display: inline-flex;
+            position: relative;
+            margin-right: 15px;
+        }
+
+        .tally {
+            width: 3px;
+            height: 30px;
+            background: #1e4d5c;
+            margin: 0 3px;
+            animation: drawTally 0.5s ease-out;
+            transform-origin: top;
+        }
+
+        .tally.diagonal {
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            left: -5px;
+            top: 50%;
+            transform: rotate(-25deg);
+            animation: drawDiagonal 0.6s ease-out;
+        }
+
+        @keyframes drawTally {
+            from {
+                transform: scaleY(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: scaleY(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes drawDiagonal {
+            from {
+                transform: rotate(-25deg) scaleX(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: rotate(-25deg) scaleX(1);
+                opacity: 1;
+            }
+        }
+
+        .icon {
+            display: inline-block;
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        .magical-element {
+            position: fixed;
+            opacity: 0.15;
+            pointer-events: none;
+            animation: float 20s infinite;
+            z-index: 1;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-30px) rotate(5deg);
+            }
+
+            50% {
+                transform: translateY(-60px) rotate(-5deg);
+            }
+
+            75% {
+                transform: translateY(-30px) rotate(3deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stars" id="starsContainer"><div class="star" style="width: 3.30378px; height: 3.30378px; left: 55.8315%; top: 47.7029%; animation-delay: 2.22709s;"></div><div class="star" style="width: 2.49908px; height: 2.49908px; left: 43.295%; top: 42.9741%; animation-delay: 0.735226s;"></div><div class="star" style="width: 2.50953px; height: 2.50953px; left: 10.4153%; top: 10.2213%; animation-delay: 0.718941s;"></div><div class="star" style="width: 2.67331px; height: 2.67331px; left: 0.0110471%; top: 69.4737%; animation-delay: 1.91944s;"></div><div class="star" style="width: 3.84607px; height: 3.84607px; left: 73.4894%; top: 34.7976%; animation-delay: 0.805322s;"></div><div class="star" style="width: 2.23142px; height: 2.23142px; left: 54.9836%; top: 66.7913%; animation-delay: 0.61621s;"></div><div class="star" style="width: 3.12377px; height: 3.12377px; left: 92.5803%; top: 89.8571%; animation-delay: 1.85497s;"></div><div class="star" style="width: 2.37965px; height: 2.37965px; left: 82.3158%; top: 63.8528%; animation-delay: 2.68601s;"></div><div class="star" style="width: 1.09238px; height: 1.09238px; left: 61.9708%; top: 86.4813%; animation-delay: 1.39284s;"></div><div class="star" style="width: 2.98937px; height: 2.98937px; left: 66.0724%; top: 59.612%; animation-delay: 2.08402s;"></div><div class="star" style="width: 1.48717px; height: 1.48717px; left: 37.6991%; top: 71.7279%; animation-delay: 1.63839s;"></div><div class="star" style="width: 2.77881px; height: 2.77881px; left: 35.0465%; top: 11.5984%; animation-delay: 2.65378s;"></div><div class="star" style="width: 2.66803px; height: 2.66803px; left: 97.3687%; top: 80.9829%; animation-delay: 1.23743s;"></div><div class="star" style="width: 2.21881px; height: 2.21881px; left: 87.2655%; top: 93.0016%; animation-delay: 1.85107s;"></div><div class="star" style="width: 2.17756px; height: 2.17756px; left: 37.4381%; top: 9.94204%; animation-delay: 0.504528s;"></div><div class="star" style="width: 2.85204px; height: 2.85204px; left: 57.9209%; top: 69.0328%; animation-delay: 1.60765s;"></div><div class="star" style="width: 3.65169px; height: 3.65169px; left: 95.5102%; top: 8.58483%; animation-delay: 2.53026s;"></div><div class="star" style="width: 1.4061px; height: 1.4061px; left: 18.6593%; top: 68.5577%; animation-delay: 0.400516s;"></div><div class="star" style="width: 2.72332px; height: 2.72332px; left: 54.0474%; top: 59.2183%; animation-delay: 2.29695s;"></div><div class="star" style="width: 1.54506px; height: 1.54506px; left: 56.6353%; top: 9.10312%; animation-delay: 1.68104s;"></div><div class="star" style="width: 2.14723px; height: 2.14723px; left: 13.6965%; top: 56.8424%; animation-delay: 1.82308s;"></div><div class="star" style="width: 3.66161px; height: 3.66161px; left: 27.8347%; top: 27.4018%; animation-delay: 0.690496s;"></div><div class="star" style="width: 3.27979px; height: 3.27979px; left: 26.8433%; top: 31.9003%; animation-delay: 2.22292s;"></div><div class="star" style="width: 3.00178px; height: 3.00178px; left: 41.5892%; top: 88.6502%; animation-delay: 1.26716s;"></div><div class="star" style="width: 1.05829px; height: 1.05829px; left: 8.25904%; top: 55.11%; animation-delay: 1.62459s;"></div><div class="star" style="width: 2.74707px; height: 2.74707px; left: 32.3711%; top: 1.67709%; animation-delay: 2.85906s;"></div><div class="star" style="width: 2.48933px; height: 2.48933px; left: 65.0589%; top: 87.9769%; animation-delay: 1.93998s;"></div><div class="star" style="width: 3.37731px; height: 3.37731px; left: 60.4422%; top: 83.7737%; animation-delay: 1.90947s;"></div><div class="star" style="width: 1.08591px; height: 1.08591px; left: 98.8218%; top: 49.6932%; animation-delay: 1.81566s;"></div><div class="star" style="width: 1.63493px; height: 1.63493px; left: 50.0094%; top: 51.9254%; animation-delay: 1.22345s;"></div><div class="star" style="width: 3.2441px; height: 3.2441px; left: 82.198%; top: 85.311%; animation-delay: 2.06757s;"></div><div class="star" style="width: 2.7344px; height: 2.7344px; left: 36.7028%; top: 10.0631%; animation-delay: 2.24129s;"></div><div class="star" style="width: 1.87553px; height: 1.87553px; left: 19.9851%; top: 76.5679%; animation-delay: 2.35197s;"></div><div class="star" style="width: 3.88231px; height: 3.88231px; left: 66.9687%; top: 23.3038%; animation-delay: 2.01998s;"></div><div class="star" style="width: 1.68125px; height: 1.68125px; left: 35.2291%; top: 25.0148%; animation-delay: 0.117939s;"></div><div class="star" style="width: 2.97114px; height: 2.97114px; left: 49.3532%; top: 76.4813%; animation-delay: 0.826873s;"></div><div class="star" style="width: 1.31139px; height: 1.31139px; left: 12.2692%; top: 99.8917%; animation-delay: 2.23095s;"></div><div class="star" style="width: 3.56626px; height: 3.56626px; left: 34.4474%; top: 73.2457%; animation-delay: 1.23039s;"></div><div class="star" style="width: 2.02027px; height: 2.02027px; left: 7.48545%; top: 34.7979%; animation-delay: 2.81244s;"></div><div class="star" style="width: 2.64703px; height: 2.64703px; left: 35.0724%; top: 33.2883%; animation-delay: 1.77312s;"></div><div class="star" style="width: 2.45846px; height: 2.45846px; left: 0.760864%; top: 6.10667%; animation-delay: 0.111006s;"></div><div class="star" style="width: 3.05723px; height: 3.05723px; left: 19.7381%; top: 37.8803%; animation-delay: 1.2917s;"></div><div class="star" style="width: 1.76057px; height: 1.76057px; left: 58.6435%; top: 95.7132%; animation-delay: 2.02075s;"></div><div class="star" style="width: 2.14915px; height: 2.14915px; left: 42.0876%; top: 36.9104%; animation-delay: 2.58176s;"></div><div class="star" style="width: 2.21832px; height: 2.21832px; left: 69.6122%; top: 66.1264%; animation-delay: 2.71935s;"></div><div class="star" style="width: 2.53159px; height: 2.53159px; left: 34.3499%; top: 79.3267%; animation-delay: 1.66642s;"></div><div class="star" style="width: 1.8057px; height: 1.8057px; left: 74.5239%; top: 15.3652%; animation-delay: 1.93426s;"></div><div class="star" style="width: 1.76473px; height: 1.76473px; left: 34.0951%; top: 89.2464%; animation-delay: 0.306667s;"></div><div class="star" style="width: 3.66324px; height: 3.66324px; left: 61.6313%; top: 77.7464%; animation-delay: 2.49554s;"></div><div class="star" style="width: 1.48908px; height: 1.48908px; left: 68.0364%; top: 96.8676%; animation-delay: 0.915393s;"></div><div class="star" style="width: 3.31848px; height: 3.31848px; left: 45.3335%; top: 63.7762%; animation-delay: 2.60557s;"></div><div class="star" style="width: 3.96078px; height: 3.96078px; left: 48.2403%; top: 95.652%; animation-delay: 0.262641s;"></div><div class="star" style="width: 1.24589px; height: 1.24589px; left: 89.6352%; top: 23.4102%; animation-delay: 0.892795s;"></div><div class="star" style="width: 2.48604px; height: 2.48604px; left: 66.0262%; top: 48.2521%; animation-delay: 0.838453s;"></div><div class="star" style="width: 2.59413px; height: 2.59413px; left: 25.1177%; top: 27.5342%; animation-delay: 0.23155s;"></div><div class="star" style="width: 3.56365px; height: 3.56365px; left: 85.5053%; top: 77.9115%; animation-delay: 0.911886s;"></div><div class="star" style="width: 2.66838px; height: 2.66838px; left: 83.7731%; top: 71.4931%; animation-delay: 2.2147s;"></div><div class="star" style="width: 3.84547px; height: 3.84547px; left: 72.1289%; top: 59.808%; animation-delay: 2.61077s;"></div><div class="star" style="width: 1.59394px; height: 1.59394px; left: 78.8116%; top: 14.7405%; animation-delay: 0.457612s;"></div><div class="star" style="width: 2.85806px; height: 2.85806px; left: 70.2797%; top: 2.78869%; animation-delay: 1.03691s;"></div><div class="star" style="width: 2.60208px; height: 2.60208px; left: 82.1311%; top: 11.9919%; animation-delay: 2.88579s;"></div><div class="star" style="width: 1.9334px; height: 1.9334px; left: 92.9251%; top: 60.8761%; animation-delay: 0.513381s;"></div><div class="star" style="width: 1.39052px; height: 1.39052px; left: 91.1521%; top: 33.4674%; animation-delay: 0.916841s;"></div><div class="star" style="width: 2.85207px; height: 2.85207px; left: 94.8167%; top: 86.1998%; animation-delay: 2.132s;"></div><div class="star" style="width: 1.51948px; height: 1.51948px; left: 60.3882%; top: 35.0866%; animation-delay: 2.22727s;"></div><div class="star" style="width: 3.96412px; height: 3.96412px; left: 31.3995%; top: 64.6918%; animation-delay: 0.857912s;"></div><div class="star" style="width: 1.39173px; height: 1.39173px; left: 50.3474%; top: 39.6068%; animation-delay: 2.39235s;"></div><div class="star" style="width: 1.63005px; height: 1.63005px; left: 6.69677%; top: 13.5808%; animation-delay: 1.2659s;"></div><div class="star" style="width: 2.71856px; height: 2.71856px; left: 48.803%; top: 91.4418%; animation-delay: 0.975478s;"></div><div class="star" style="width: 2.35766px; height: 2.35766px; left: 64.743%; top: 54.4503%; animation-delay: 2.29286s;"></div><div class="star" style="width: 3.40857px; height: 3.40857px; left: 31.6976%; top: 63.5934%; animation-delay: 2.01972s;"></div><div class="star" style="width: 1.85108px; height: 1.85108px; left: 68.8387%; top: 51.7265%; animation-delay: 0.46717s;"></div><div class="star" style="width: 1.1581px; height: 1.1581px; left: 5.28288%; top: 0.351012%; animation-delay: 1.84224s;"></div><div class="star" style="width: 3.917px; height: 3.917px; left: 74.4209%; top: 73.6434%; animation-delay: 2.68128s;"></div><div class="star" style="width: 3.12984px; height: 3.12984px; left: 70.3904%; top: 65.8322%; animation-delay: 1.77726s;"></div><div class="star" style="width: 2.00264px; height: 2.00264px; left: 72.1551%; top: 76.6511%; animation-delay: 2.88373s;"></div><div class="star" style="width: 2.47895px; height: 2.47895px; left: 94.0948%; top: 83.312%; animation-delay: 0.634763s;"></div><div class="star" style="width: 2.48208px; height: 2.48208px; left: 7.62899%; top: 2.78295%; animation-delay: 1.89986s;"></div><div class="star" style="width: 3.75137px; height: 3.75137px; left: 53.2027%; top: 63.7898%; animation-delay: 1.47565s;"></div><div class="star" style="width: 3.09599px; height: 3.09599px; left: 80.3121%; top: 32.6072%; animation-delay: 1.39557s;"></div></div>
+
+    <div class="magical-element" style="top: 10%; left: 5%; font-size: 80px;">🔮</div>
+    <div class="magical-element" style="top: 20%; right: 8%; font-size: 60px; animation-delay: -5s;">⚡</div>
+    <div class="magical-element" style="top: 40%; left: 3%; font-size: 50px; animation-delay: -8s;">📖</div>
+    <div class="magical-element" style="top: 60%; left: 10%; font-size: 70px; animation-delay: -10s;">🪄</div>
+    <div class="magical-element" style="top: 70%; right: 5%; font-size: 65px; animation-delay: -15s;">✨</div>
+    <div class="magical-element" style="top: 85%; left: 15%; font-size: 55px; animation-delay: -12s;">🌙</div>
+    <div class="magical-element" style="top: 30%; right: 12%; font-size: 45px; animation-delay: -7s;">🦉</div>
+
+    <div class="container">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <h1>⚡ 6th Grade Guardians ⚡</h1>
+        <p class="subtitle">Protectors of Knowledge • Seekers of Kindness</p>
+        <div class="wand-divider"></div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th><span class="icon">🏆</span>Guardian Name</th>
+                    <th><span class="icon">✨</span>Magical Achievements</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="name-cell">Bryan</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"><div class="tally-group"><div class="tally"></div></div></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Ghanim</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"><div class="tally-group"><div class="tally"></div></div></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Hassan</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"><div class="tally-group"><div class="tally"></div></div></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Hazim</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"><div class="tally-group"><div class="tally"></div></div></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Iben</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"><div class="tally-group"><div class="tally"></div></div></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Izzmeer</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"><div class="tally-group"><div class="tally"></div></div></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Kosei</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"><div class="tally-group"><div class="tally"></div></div></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Kotaro</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"><div class="tally-group"><div class="tally"></div></div></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Liam</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"><div class="tally-group"><div class="tally"></div></div></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Linus</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Maxi</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Meimei</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Mia</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Miko</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Nadia</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Olivia</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Reshmi</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Rin</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Sato</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Serina</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Siho</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Takeru</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Tian</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Tsuguatsu</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Yejun</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name-cell">Yolanda</td>
+                    <td class="achievement-cell"><span class="quill-btn active" onclick="addTally(this)">🪶</span>
+                        <div class="tally-marks"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('starsContainer');
+        for (let i = 0; i < 80; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 1 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        let quillMode = false;
+        let keySequence = [];
+        let modifiersHeld = false;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.altKey && e.shiftKey) {
+                modifiersHeld = true;
+                const key = e.key.toLowerCase();
+
+                const keyMap = {
+                    'µ': 'm',
+                    'â': 'm',
+                    'å': 'a',
+                    'ä': 'a',
+                    'm': 'm',
+                    'a': 'a'
+                };
+
+                if (keyMap[key]) {
+                    const normalizedKey = keyMap[key];
+                    keySequence.push(normalizedKey);
+
+                    if (keySequence.length >= 2) {
+                        const lastTwo = keySequence.slice(-2).join('');
+                        if (lastTwo === 'ma') {
+                            quillMode = !quillMode;
+                            toggleQuillMode(quillMode);
+                            keySequence = [];
+                        }
+                    }
+                }
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            if (!e.altKey || !e.shiftKey) {
+                modifiersHeld = false;
+                keySequence = [];
+            }
+        });
+
+        function toggleQuillMode(enabled) {
+            const quillBtns = document.querySelectorAll('.quill-btn');
+
+            quillBtns.forEach(btn => {
+                if (enabled) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        function addTally(btn) {
+            if (!quillMode) {
+                return;
+            }
+
+            btn.classList.add('drawing');
+
+
+            btn.addEventListener('animationend', () => {
+                btn.classList.remove('drawing');
+                btn.style.transform = '';
+                btn.style.opacity = '';
+            }, { once: true });
+
+            const cell = btn.parentElement;
+            const tallyContainer = cell.querySelector('.tally-marks');
+            let groups = tallyContainer.querySelectorAll('.tally-group');
+            let lastGroup = groups[groups.length - 1];
+
+            if (!lastGroup || lastGroup.querySelectorAll('.tally').length >= 5) {
+                lastGroup = document.createElement('div');
+                lastGroup.className = 'tally-group';
+                tallyContainer.appendChild(lastGroup);
+            }
+
+            const verticalsInGroup = lastGroup.querySelectorAll('.tally:not(.diagonal)').length;
+
+            if (verticalsInGroup < 4) {
+                const tally = document.createElement('div');
+                tally.className = 'tally';
+                lastGroup.appendChild(tally);
+            } else {
+                const tally = document.createElement('div');
+                tally.className = 'tally diagonal';
+                lastGroup.appendChild(tally);
+            }
+        }
+    </script>
+
+
+</body></html>
